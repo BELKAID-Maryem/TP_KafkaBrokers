@@ -28,16 +28,41 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
       
      -kafka-console-producer: qui permet de produire des messages vers le topic qui s'appel R1:
      
+     
      ![image](https://user-images.githubusercontent.com/102295113/172934761-ab499a05-e443-4ecc-854a-01b60c15832b.png)
 
     
 ![image](https://user-images.githubusercontent.com/102295113/172933966-a4f8e440-d218-4ac0-a106-36c928d0681b.png)
 
-- Et pour consommer tout les donnees qui se trouve ds le topic en ajeut --from-beginning:
+- Et si on ajoute --from-beginning :
 
 ![image](https://user-images.githubusercontent.com/102295113/172934489-91e3a338-57d9-4790-92bf-2f57c207ffde.png)
 
+--> On remarque que le comsomateur consommer  tout les donnees qui se trouve dans le topic :
+
 ![image](https://user-images.githubusercontent.com/102295113/172934296-829c38b7-47d9-4b4d-8ea6-c1cd1890991f.png)
+
+2- Spring cloud streams functions :
+
+- On commance par creer une classe PageEvent qui definier par:
+     -nom de page.
+     -nom de l'utilisateur qui visite la page .
+      - la date de visite de la page
+      -  la duree passer par la page.
+ ce classe permet de gerer des evenoment qui sont produisse dans les page visiter par les utilisateur
+ 
+ -Puis creer une RestController dans le paquage web qui appeler PageEventRestController et pour envoyer une msg au lieu d'utiliser kafkaTemplate ou JMSTemplate il suffit d'utiliser un objet  StreamBridge qui permet d'envoyer un msg mais  indepandament des brokers (kafka,jms rabbitMQ..) , et pour envoyer ce msg en utilise StreamBridge.send . et ce msg et par defaut serealiser en format Json
+ 
+localhost:port/publish/R1/hello pour tester 
+
+3-Creation d'un  consumer avec Spring cloud Streams :
+-Il suffit de creer une classe PageEventService(un service) dans lequel on creer une methode pageEventConsumer avec la notation Bean qui permet de retourner un objet de type consumer et apres autoumatiquement spring cloud streams fait une subscribe vers un topic kafka et il va attentre le msg qui arive il va etre recuperer et finallement afficher.
+Dans ce partie , au lieu de consommer le msg on utilisant kafka-console-consumer 
+creer un consumer qui ecouter le topic R1 et lire les msg qui arive sur le topic R1
+
+
+ 
+
 
 
 
