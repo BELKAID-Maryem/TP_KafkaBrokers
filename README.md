@@ -15,7 +15,9 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
  ![image](https://user-images.githubusercontent.com/102295113/172888547-c8c9401c-594a-4b7a-9206-00ff74a0b11b.png)
 
  -Et pour faire des teste on a besion de demarer :
- 
+     - kafka-console-consumer: qui permet à n'importe quel application(java,c++,..) de faire une s'abscribe vers le topic R1 et consomer tout les donnees qui se trouve             dans ce topic.
+ ![image](https://user-images.githubusercontent.com/102295113/172929562-48055c7c-d0ad-4c0a-9a16-cf25adef6dd5.png)
+
 
  
 
