@@ -56,12 +56,17 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
 ![image](https://user-images.githubusercontent.com/102295113/172953780-1827de39-1e39-45a3-a9de-70015e14f757.png)
 
 3-Creation d'un  consumer avec Spring cloud Streams :
+
 -Il suffit de creer une classe PageEventService(un service) dans lequel on creer une methode pageEventConsumer avec la notation Bean qui permet de retourner un objet de type consumer et apres autoumatiquement spring cloud streams fait une subscribe vers un topic kafka et il va attentre le msg qui arive il va etre recuperer et finallement afficher.
 
 - Et pour le consomateur qu'on a creer consommer des msg a partire d'un topic R1 et non pas le chnnel pageEventConsumer-in-0 qui choisir par defaut par spring cloud streams on a besoin d'ajouter cette ligne ds le fichier de configuration application.properties:
 
 ![image](https://user-images.githubusercontent.com/102295113/172955134-b8d6d6b7-49fb-49b1-9f18-b46c1e94bf9d.png)
 
+![image](https://user-images.githubusercontent.com/102295113/172956236-74b95494-e3c0-422c-b8c7-d82e50e3dd81.png)
+ 
+ 4-creation un supplier avec Spring cloud Streams :
+ - Il suffit d'ajouter une fonction de type supplier qui s'appel pageEventSupplier ds lequel pour chaque seconde je voudrait envoyer un ms et publier ds un topic R1
 
 
 
