@@ -23,15 +23,16 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
      - kafka-console-consumer: qui permet à n'importe quel application(java,c++,..) de faire une s'abscribe vers le topic R1 pour consommer les messages  qui arive apres ma subscribtion :
      
 ![image](https://user-images.githubusercontent.com/102295113/172930702-202c3ddb-012b-44a6-9c69-ed7ff0891410.png)
-![image](https://user-images.githubusercontent.com/102295113/172931252-d6c4002f-b2e6-4de5-8435-975bece3835e.png)
+
 
       
      -kafka-console-producer: qui permet de produire des messages vers le topic qui s'appel R1:
      
-    ![image](https://user-images.githubusercontent.com/102295113/172931047-e2e6050a-e4b5-4f70-ae99-9e33dfc98f8c.png)
-    ![image](https://user-images.githubusercontent.com/102295113/172931124-24380190-06fe-4584-9705-751240bb0bb5.png)
+     ![image](https://user-images.githubusercontent.com/102295113/172934761-ab499a05-e443-4ecc-854a-01b60c15832b.png)
+
     
 ![image](https://user-images.githubusercontent.com/102295113/172933966-a4f8e440-d218-4ac0-a106-36c928d0681b.png)
+
 - Et pour consommer tout les donnees qui se trouve ds le topic en ajeut --from-beginning:
 
 ![image](https://user-images.githubusercontent.com/102295113/172934489-91e3a338-57d9-4790-92bf-2f57c207ffde.png)
