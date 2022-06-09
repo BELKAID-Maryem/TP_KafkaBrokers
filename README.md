@@ -66,7 +66,30 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
 ![image](https://user-images.githubusercontent.com/102295113/172956236-74b95494-e3c0-422c-b8c7-d82e50e3dd81.png)
  
  4-creation un supplier avec Spring cloud Streams :
- - Il suffit d'ajouter une fonction de type supplier qui s'appel pageEventSupplier ds lequel pour chaque seconde je voudrait envoyer un ms et publier ds un topic R1
+ - Il suffit d'ajouter une fonction de type supplier qui s'appel pageEventSupplier ds lequel pour chaque seconde je voudrait envoyer un ms page event et publier ds un topic kafka.
+ 
+ - une fonction de type supplier produit des msg ds un topic par defaut qui appel le meme nomde fonction.out-0 et pour utiliser un autre topic on a besion d'ajouter cette ligne ds le fichier de configuration application.properties , et pour utiliser plusieur fonction on mem application on a besion de declare et pour .
+ 
+ ![image](https://user-images.githubusercontent.com/102295113/172959298-1e55d467-becc-442b-a586-00061bdd75ad.png)
+
+![image](https://user-images.githubusercontent.com/102295113/172961987-d674cf93-d278-4a8e-9903-a0ec125b7829.png)
+
+
+
+![image](https://user-images.githubusercontent.com/102295113/172959886-009d5237-f5b8-44ea-8ca8-77d5a3c282e1.png)
+
+5-kafka Streams :
+
+- Il suffit d'ajouter une fonction pageEventFunction de type Function qui permet de traiter un flux d'enregistrement du topic R2 en temps real pour prendre des decision et produit un resultat  qui va vers un autre topic qui appel R3.
+
+
+
+
+
+
+
+
+
 
 
 
