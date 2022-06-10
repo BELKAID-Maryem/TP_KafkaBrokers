@@ -85,25 +85,48 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
 
 - Il suffit d'ajouter une fonction pageEventFunction de type Function qui permet de traiter un flux d'enregistrement du topic R2 en temps real pour prendre des decision et produit un resultat  qui va vers un autre topic qui appel R3.
 
->>>>>>>>
+![image](https://user-images.githubusercontent.com/102295113/173119139-89aa085a-f2a4-409e-8dce-918e01ae20f8.png)
+ 
+ - Maintenat au lieu de renome le nom de la page a "page event" en remplace par la longeur de msg :
+ 
+ ![image](https://user-images.githubusercontent.com/102295113/173119953-920ed868-0980-4f6d-b465-2f4df5778810.png)
+ 
+ 
+- Puis le suplier qui produit sur R2 chaque 100 ms produit des evenement , il va traiter et envoyer vers le topic R3:
+
+![image](https://user-images.githubusercontent.com/102295113/173120554-8cd43e70-bd2e-437d-a24f-792a8e616320.png)
 
 # Partie2: Even driven Processing Spring Cloud Streams Functions Kafka Streams
 
 - Dans ce partien , on traiter que les evenement de visite de page ds la duree de  visite passe 100 ms et je produit vers un topic R4 un stream ds lequel la clee  c   est le nom de la page et le valeur c'est le nbr de fois que la page a ete  visiter.
 - Et pour demander a kafka-conole-consumer pour afficher que le kley et valeur on a utiliser la commande suivant :
 
->>>>>>>>>
-- Et pour applique la fonction d'agregation Count() uniquement sur l'ensemble des enregistrement qui observer pendant le 5 dernier second on a utiliser l'operation de fenêtrage .windowdBy et ds ce cas on a retourner un objet de type KTable au lieu de KStream
+![image](https://user-images.githubusercontent.com/102295113/173121812-8c0f85e4-6130-4d4a-a3fc-d3eb10638094.png)
 
->>>>>>>>30min 
+
+![image](https://user-images.githubusercontent.com/102295113/173122621-f91fd956-2ebf-4cf5-b7f0-e9b26b068b71.png)
+
+- Et pour kafka streams commit les resultat chaque 1s on a besion d'ajouter ce ligne dans le fichier de configuration :
+
+![image](https://user-images.githubusercontent.com/102295113/173123422-77b27fc4-264f-4933-bfb8-96337ae33dd8.png)
+
+
+- Et voila le resultat qu'on a obtenir:
+
+![image](https://user-images.githubusercontent.com/102295113/173123137-8588b4a8-7c6c-4b79-8988-f16fe48dfa83.png)
+
+
+- Et pour applique la fonction d'agregation Count() uniquement sur l'ensemble des enregistrement qui observer pendant le 5 dernier second on a utiliser l'operation de fenêtrage .windowdBy qui retourner un objet de type KTable.
+
+![image](https://user-images.githubusercontent.com/102295113/173123698-6acea94f-5b7c-4b40-b831-e42920881f92.png)
 
 - Apres les resultats de count stocker ds un store (KTable )qui s'appel page-count ds lequel kafkaStreams va stocker a chaque fois les eregistrement qui represente les dernier calcule qui effectue et apres pour chaque second evoyer ces resultat calculer vers le client qui établir une connexion http.
 
->>>>>>34min
+![image](https://user-images.githubusercontent.com/102295113/173123824-8c4a6181-2a48-4abe-ad34-77421814c691.png)
 
 - Puis on a creer une simple page html ds laquel on a utiliser une librere qui s'apple smothie.js qui permet de representer les graphique dynamique(les donnees recuperer en temps real) 
 
->>>>>1h:07min
+![image](https://user-images.githubusercontent.com/102295113/173123998-3ec47e3f-7daa-4ac3-be71-638512677cfe.png)
 
 
 
