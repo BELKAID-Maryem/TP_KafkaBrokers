@@ -27,15 +27,11 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
      - kafka-console-consumer: qui permet à n'importe quel application(java,c++,..) de faire une s'abscribe vers le topic R1 pour consommer les messages  qui arive apres ma subscribtion :
      
 ![image](https://user-images.githubusercontent.com/102295113/172930702-202c3ddb-012b-44a6-9c69-ed7ff0891410.png)
+  
+  -kafka-console-producer: qui permet de produire des messages vers le topic qui s'appel R1:
+ 
+ ![image](https://user-images.githubusercontent.com/102295113/172934761-ab499a05-e443-4ecc-854a-01b60c15832b.png)
 
-
-      
-     -kafka-console-producer: qui permet de produire des messages vers le topic qui s'appel R1:
-     
-     
-     ![image](https://user-images.githubusercontent.com/102295113/172934761-ab499a05-e443-4ecc-854a-01b60c15832b.png)
-
-    
 ![image](https://user-images.githubusercontent.com/102295113/172933966-a4f8e440-d218-4ac0-a106-36c928d0681b.png)
 
 - Et si on ajoute --from-beginning :
@@ -49,11 +45,13 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
 ## 1- Application spring boot with kafka-console-consumer :
 
 - On commance par creer une classe PageEvent qui definier par:
-     -nom de page.
-     -nom de l'utilisateur qui visite la page .
-      - la date de visite de la page
-      -  la duree passer par la page.
- ce classe permet de gerer des evenoment qui sont produisse dans les page visiter par les utilisateur
+    
+    - nom de page.
+    -  nom de l'utilisateur qui visiter la page.
+    -  la date de visite de la page.
+    -  la duree passer par la page.
+      
+ - Ce classe permet de gerer des evenoment qui sont produisse dans les page visiter par les utilisateur
  
  -Puis creer une RestController dans le paquage web qui appeler PageEventRestController et pour envoyer une msg au lieu d'utiliser kafkaTemplate ou JMSTemplate il suffit d'utiliser un objet  StreamBridge qui permet d'envoyer un msg mais  indepandament des brokers (kafka,jms rabbitMQ..) , et pour envoyer ce msg en utilise StreamBridge.send . et ce msg et par defaut serealiser en format Json
  
