@@ -1,8 +1,8 @@
 
 
-#Parte 1 : Even driven distributed processing with spring cloud stream function- KAFKA Broker:
+# Parte 1 : Even driven distributed processing with spring cloud stream function- KAFKA Broker:
 
-#Démarage de serveur Zookeeper:
+## Démarage de serveur Zookeeper:
 
 Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zookeeper qui permet de faire la coordination entre les defirente instance du brokers kafka.
 
@@ -12,7 +12,7 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
 
  ![image](https://user-images.githubusercontent.com/102295113/172882014-ab755cc6-1ad1-4fae-a7d2-cab2ce8736aa.png)
  
- #Démarage de serveur kafka:
+ ## Démarage de serveur kafka:
  
  - une fois que zookeeper demarer en peut par suite demarer le server kafka en utilisant kafka-server-start :
  
@@ -46,7 +46,7 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
 
 ![image](https://user-images.githubusercontent.com/102295113/172934296-829c38b7-47d9-4b4d-8ea6-c1cd1890991f.png)
 
-##1- Application spring boot with kafka-console-consumer :
+## 1- Application spring boot with kafka-console-consumer :
 
 - On commance par creer une classe PageEvent qui definier par:
      -nom de page.
@@ -59,7 +59,7 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
  
 ![image](https://user-images.githubusercontent.com/102295113/172953780-1827de39-1e39-45a3-a9de-70015e14f757.png)
 
-##2-Creation d'un  consumer avec Spring cloud Streams :
+## 2-Creation d'un  consumer avec Spring cloud Streams :
 
 -Il suffit de creer une classe PageEventService(un service) dans lequel on creer une methode pageEventConsumer avec la notation Bean qui permet de retourner un objet de type consumer et apres autoumatiquement spring cloud streams fait une subscribe vers un topic kafka et il va attentre le msg qui arive il va etre recuperer et finallement afficher.
 
@@ -69,7 +69,7 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
 
 ![image](https://user-images.githubusercontent.com/102295113/172956236-74b95494-e3c0-422c-b8c7-d82e50e3dd81.png)
  
- ##3-creation un supplier avec Spring cloud Streams :
+ ## 3-creation un supplier avec Spring cloud Streams :
  
  - Il suffit d'ajouter une fonction de type supplier qui s'appel pageEventSupplier ds lequel pour chaque seconde je voudrait envoyer un ms page event et publier ds un topic kafka.
  
@@ -83,14 +83,15 @@ Pour demarer kafka on a besion tout d'abord de demarer un utile qui s'appel zook
 
 ![image](https://user-images.githubusercontent.com/102295113/172959886-009d5237-f5b8-44ea-8ca8-77d5a3c282e1.png)
 
-##5-kafka Streams :
+## 4-kafka Streams :
 
 - Il suffit d'ajouter une fonction pageEventFunction de type Function qui permet de traiter un flux d'enregistrement du topic R2 en temps real pour prendre des decision et produit un resultat  qui va vers un autre topic qui appel R3.
 
 >>>>>>>>
 
-##Partie2
-- Dans ce partien , on traiter que les evenement de visite de page ds la duree de     visite passe 100 ms et je produit vers un topic R4 un stream ds lequel la clee  c   est le nom de la page et le valeur c'est le nbr de fois que la page a ete           visiter.
+# Partie2: Even driven Processing Spring Cloud Streams Functions Kafka Streams
+
+- Dans ce partien , on traiter que les evenement de visite de page ds la duree de  visite passe 100 ms et je produit vers un topic R4 un stream ds lequel la clee  c   est le nom de la page et le valeur c'est le nbr de fois que la page a ete  visiter.
 - Et pour demander a kafka-conole-consumer pour afficher que le kley et valeur on a utiliser la commande suivant :
 
 >>>>>>>>>
